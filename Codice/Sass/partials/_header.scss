@@ -1,0 +1,163 @@
+header{
+  section:nth-child(1){
+    margin: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    #sponsor{
+      display: flex;
+      justify-content: center;
+
+      img{
+        margin: 5px;
+        width: 35px; height: 35px;
+      }
+    }
+
+    #aiuti ul{
+      display: flex;
+      justify-content: center;
+
+      li{
+        padding: 5px;
+        margin: 0 5px;
+
+        a{
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+
+  section:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+
+    #logo{
+      width: 150px; height: 75px;
+      margin: 0 20px;
+    }
+
+    #aquisti{
+      width: 25%;
+      align-content: center;
+
+      ul{
+        height: 75%;
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        
+        li{
+          margin: 10px 0;
+          text-align: center;
+          align-content: center;
+
+          form{
+            width: 100%;
+
+            input{
+              width: calc(100% - 50px); height: 100%;
+              border: none;
+              outline: none;
+              font-size: 1em;
+              background-color: transparent;
+              position: absolute;
+              top: 0; right: 0;
+            }
+
+            button{
+              width: 30px; height: 100%;
+              position: absolute;
+              top: 0; left: 0;
+            }
+          }
+
+          &:first-child{
+            width: 100%;
+            border-radius: 15px;
+            position: relative;
+            
+            &:hover{
+              background-color: rgb(200, 200, 200);
+            }
+          }
+
+          button{
+            width: 40px;
+            padding: 5px;
+            border: none;
+            border-radius: 20px;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover{
+              background-color: rgb(200, 200, 200);
+            }
+          }
+        }
+      }
+    }
+      
+    nav{
+      width: 40%;
+      
+      ul{
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        li{
+          height: 80%;
+          margin: 10px 0;
+          align-content: center;
+          
+          a{
+            padding: 15px 0;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+            color: black;
+            
+            &:hover{
+              border-bottom-color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section:nth-child(4){
+    height: 75px;
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+
+    div{
+      width: 100%;
+      padding: 10px;
+      line-height: 1.5em;
+      text-align: center;
+      transition: 1.5s;
+      position: absolute;
+      top: 0; left: -100%;
+      background-color: rgb(235, 244, 248);
+
+
+      a{
+        color: black;
+      }
+
+      &.visibile{
+        left: 0;
+        z-index: 5;
+      }
+      &.davanti{
+        left: 100%;
+        z-index: -5;
+      }
+    }
+  }
+}

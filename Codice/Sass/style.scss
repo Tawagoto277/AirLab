@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: social;
+  src: url(img/sprite/spriteSocial/fontello-8ae8dae7/fontello-8ae8dae7/font/nikefont.ttf);
+}
+
+ul{
+  list-style-type: none;
+}
+
+img{
+  max-width: 100%;
+}
+
+$bordo : 1px solid black;
+
+@import 'partials/header';
+@import 'partials/main';//si poteva evitare
+@import 'partials/_footer';

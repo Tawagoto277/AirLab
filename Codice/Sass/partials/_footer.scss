@@ -1,0 +1,221 @@
+footer section:first-child{
+  height: 250px;
+  padding: 0 75px;
+  margin: 0 10px;
+  overflow: auto;
+  overflow-y: hidden;
+  transition: .5s;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  ul{
+    li{
+      padding: 5px;
+      margin: 5px 0;
+      font-size: 1.2em;
+
+      a{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+  }
+
+  ul.titoloLista{
+
+    li{
+      text-align: center;
+      a{
+        color: black;
+      }
+    }
+  }
+
+  ul.listaElementi{
+
+    li a:hover{
+      color: black;
+    }
+  }
+
+  &:hover{
+    height: 665px;
+    transition: 1s;
+  }
+}
+
+footer section#menuFooter{
+  padding: 15px;
+  background-color: black;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'liste social'
+  'modulistica modulistica';
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+  div#liste{
+    grid-area: liste;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'gift titoli titoli'
+    'gift listAssist listAziende';
+    
+    ul{
+      li{
+        padding: 5px;
+        margin: 0 5px;
+      }
+    }
+
+    ul#gift{
+      grid-area: gift;
+    }
+
+    ul#titoli{
+      grid-area: titoli;
+      display: flex;
+      align-items:end;
+
+      li{
+        width: 50%;
+      }
+    }
+
+    ul#listAssist{
+      grid-area: listAssist;
+      
+      a{
+        color: gray;
+
+        &:hover{
+          color: white;
+        }
+      }
+    }
+
+    ul#listAziende{
+      grid-area: listAziende;
+
+      a{
+        color: gray;
+
+        &:hover{
+          color: white;
+        }
+      }
+    }
+  }
+
+  div#social{
+    padding: 10px;
+    font-family: social , sans-serif;
+    grid-area: social;
+
+    ul{
+      display: flex;
+      justify-content: end;
+      
+      li{
+        padding: 10px;
+        border-radius: 50%;
+        margin: 0 10px;
+        font-size: 1.75em;
+        text-align: center;
+        background-color: gray;
+        cursor: pointer;
+        
+        a{
+          margin: 0 auto;
+          font-family: social , sans-serif;
+          color: black;
+          display: inline-block;
+        }
+
+        &:hover{
+          background-color: white;
+        }
+      }
+    }
+  }
+  section#modulistica{
+    grid-area: modulistica;
+    display: flex;
+
+    div{
+      width: 50%;
+      display: flex;
+      align-items: end;
+      
+      h2{
+        margin: 20px 0;
+        font-size: 1em;
+        color: white;
+        
+        span{
+          margin: 0 10px;
+          font-family: social , sans-serif;
+          display: inline-block;
+        }
+      }
+
+      ul#condizioni{
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        li{
+          margin: 25px 15px;
+          color: gray;
+
+          &:first-of-type{
+            position: relative;
+          }
+
+          a{
+            color: gray;
+            
+            &:hover{
+              color: white;
+            }
+          }
+
+          div#nikeNascoste{
+            display: none;
+          }
+
+          &:hover{
+            div#nikeNascoste{
+              width: 500px;
+              border: 3px solid white;
+              display: inline-block;
+              position: absolute;
+              top: -500%; left: -300%;
+
+              ul{
+                padding: 20px;
+                background-color: black;
+                display: grid;
+                grid-gap: 20px;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+
+                li{
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

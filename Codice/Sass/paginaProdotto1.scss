@@ -1,0 +1,275 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: social;
+  src: url(img/sprite/spriteSocial/fontello-8ae8dae7/fontello-8ae8dae7/font/nikefont.ttf);
+}
+
+ul{
+  list-style-type: none;
+}
+
+img{
+  width: 100%;
+}
+
+$bordo : 1px solid black;
+
+@import 'partials/header';
+@import 'partials/_footer';
+
+main{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  
+  section#fotoProdotto{
+    width: 50px;
+
+    ul{
+
+      li{
+        
+        width: 100%;
+        padding: 1px;
+        border-radius: 15%;
+        margin: 0 auto;
+        text-align: center;
+        cursor: pointer;
+
+        img{
+          border-radius: 15%;
+        }
+      }
+    }
+  }
+
+  section#mostraFoto{
+    width: calc( 100% * (3 / 5) - 25px);
+
+    div#containerMostra{
+      padding: 15px ;
+      
+      img{
+      border-radius: 20px;
+      }
+    }
+  }
+
+  section#dettagliProdotto{
+    width: calc( 100% * (2 / 5) - 25px);
+
+    h1, h3, p{
+      margin: 10px auto;
+      font-size: 1em;
+      font-weight: lighter;
+    }
+
+    h1{
+      font-size: 1.75em;
+    }
+
+    div#containerTaglie{
+      display: grid;
+      grid-gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+      'seleziona pdf'
+      'griglia griglia'
+      'carrello carrello'
+      'preferiti preferiti';
+
+      p{
+        padding: 10px;
+      }
+
+      p:first-child{
+        font-size: 1.2em;
+        grid-area: seleziona;
+      }
+
+      p#pdfTaglie{
+        grid-area: pdf;
+
+        a{
+          text-decoration: none;
+          color: gray;
+        }
+      }
+
+      div#grigliaTaglie{
+        margin: 25px 5px;
+        grid-area: griglia;
+
+        ul#ulTaglie{
+
+          display: grid;
+          grid-gap: 10px;
+          grid-template-columns: 1fr 1fr 1fr;
+
+          li{
+
+            input{
+              display: none;
+
+              &:checked + label{
+                background-color: rgb(171, 225, 247);
+              }
+
+              &#zero{
+                display: none;
+              }
+            }
+
+            label{
+              width: 100%;
+              padding: 5px;
+              border: 1px solid gray;
+              border-radius: 5px;
+              font-size: 1.25em;
+              display: block;
+
+              &:hover{
+                outline: 3px solid skyblue;
+              }
+
+              &:active{
+                background-color: skyblue;
+              }
+            }
+
+            h3{
+              text-align: center;
+              font-size: 1.5em;
+              color: red;
+            }
+          }
+        }
+      }
+
+      button{
+        padding: 20px;
+        border: 1px solid gray;
+        border-radius: 25px;
+        margin: 5px 0;
+        font-size: 1.5em;
+        cursor: pointer;
+
+        &:hover{
+          outline: 5px solid skyblue;
+        }
+
+      }
+
+      button#carrello{
+        color: white;
+        background-color: black;
+        grid-area: carrello;
+
+        &:active{
+          background-color: rgb(66, 66, 66);
+        }
+      }
+      button#preferiti{
+        grid-area: preferiti;
+
+        &:active{
+          background-color: skyblue;
+        }
+      }
+    }
+  }
+  
+  div#elementiCarrello{
+    width: 25%; 
+    border: 2px solid black;
+    background-color: white;
+    display: none;
+    z-index: 20;
+    position: absolute;
+    top: 0; right: 0;
+    
+    ul{
+      max-height: 50vh;
+      padding: 15px;
+      overflow: hidden;
+      overflow-y: scroll;
+
+      li{
+        display: flex;
+        position: relative;
+
+        div{
+          padding: 5px 10px;
+
+          &.imgCarrello{
+            width: 30%;
+          }
+
+          p{
+            line-height: 1.75em;
+
+            &:nth-of-type(2), &:nth-of-type(3){
+              color: gray;
+            }
+
+            &:last-child::after{
+              content: ' €';
+            }
+          }
+        }
+
+        div.elimProdotto{
+          position: absolute;
+          top: 0; right: 0;
+          
+          button{
+            padding: 5px;
+            border: none;
+            font-size: 1.5em;
+            font-family: social;
+            background-color: transparent;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    div#bottoniCarrello{
+      padding: 10px;
+      display: flex;
+
+      a{
+        width: 100%;
+        display: block;
+        
+        button{
+          width: 100%;
+          padding: 10px;
+          border-radius: 15px;
+          cursor: pointer;
+        }
+      }
+      
+      button#pagamento{
+      color: white;
+      background-color: black;
+      }
+    }
+  }
+
+  #schermoNero{
+    width: 100%; height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 15;
+    display: none;
+    position: absolute;
+  }
+}

@@ -1,0 +1,605 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: social;
+  src: url(img/sprite/spriteSocial/fontello-8ae8dae7/fontello-8ae8dae7/font/nikefont.ttf);
+}
+
+ul{
+  list-style-type: none;
+}
+
+img{
+  width: 100%;
+}
+
+input.errore{
+  outline: 2px solid red;
+}
+
+$bordo : 1px solid black;
+
+@import 'partials/header';
+@import 'partials/_footer';
+
+main:nth-of-type(1){
+  width: 80%; 
+  margin: 0 auto;
+  display: flex;
+  section#listaProdotti{
+    width: 70%;
+
+    div#avviso{
+      width: 80%;
+      padding: 1em;
+      border: 1px solid rgb(216, 211, 211);
+      margin: 10px 20px;
+
+      h2{
+        margin: 5px 0;
+        color: orangered;
+      }
+
+      p{
+
+        color: gray;
+        a{
+          padding-bottom: .5px;
+          border-bottom: 1.75px solid gray;
+          text-decoration: none;
+          color: gray;
+        }
+      }
+    }
+    h1{
+      padding: 1em;
+      font-size: 2em;
+      font-weight: lighter;
+    }
+    div#listaCarrello{
+      ul{
+        padding: 20px;
+
+        li{
+          padding: 10px 0;
+          border-bottom: 1px solid rgb(216, 211, 211);
+          display: grid;
+          grid-gap: 5px;
+          grid-template-columns: 1fr 3fr;
+          grid-template-areas: 
+          'img dettagli'
+          'ritiro ritiro';
+          
+          div.imgP{
+            grid-area: img;
+            text-align: center;
+            img{
+              width: 80%;
+            }
+          }
+
+          div.dettagliP{
+            padding: 10px;
+            grid-area: dettagli;
+            align-items: end;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas: 
+            'nome prezzo'
+            'genere genere'
+            'colori colori'
+            'taglia quantita'
+            'lista lista';
+            h2{
+              grid-area: nome;
+            }
+            h3{
+              grid-area: prezzo;
+              color: black;
+
+              &::after{
+                content: '\20AC';
+              }
+            }
+            p{
+              color: gray;
+
+              select{
+                width: 50px;
+                border: none;
+                border-radius: 20px;
+                color: gray;
+
+                &:hover{
+                  outline: 2px solid skyblue;
+                }
+              }
+            }
+
+            p:nth-of-type(1){
+              grid-area: genere;
+            }
+            p:nth-of-type(2){
+              grid-area: colori;
+            }
+            p:nth-of-type(3){
+              grid-area: taglia;
+            }
+            p:nth-of-type(4){
+              grid-area: quantita;
+            }
+
+            ul{
+              grid-area: lista;
+              display: flex;
+              
+              li{
+                padding: 5px;
+                border: none;
+                margin: 5px;
+                text-align: center;
+                display: block;
+                
+                a{
+                  text-decoration: none;
+                  font-family: social;
+                  color: black;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+
+          div.ritiri{
+            padding: 10px;
+            grid-area: ritiro;
+            p{
+              a{
+                padding-bottom: 2px;
+                border-bottom: 1px solid black;
+                text-decoration: none;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+
+      h3{
+        padding: 10px;
+        margin: 15px;
+        color: red;
+      }
+    }
+  }
+
+  section#TotaleSpesa{
+    width: 20%; max-height:450px;
+    padding: 1em;
+    
+    h2{
+      margin: 20px 0;
+      font-size: 2em;
+      font-weight: lighter;
+    }
+
+    div#promozione{
+      width: 100%;
+      display: grid;
+      grid-gap: 25px;
+      grid-template-columns: 3fr 1fr;
+      position: relative;
+
+      p{
+        font-weight: bold;
+      }
+      
+      button{
+        width: 30px; height: 30px;
+        padding: none;
+        border: 1px solid rgb(180, 180, 180);
+        margin: 0 5px;
+        font-size: 1.5em;
+        text-align: center;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      input{
+        display: none;
+        position: absolute;
+        top: 100%; left: 0;
+      }
+    }
+
+    section#dettagliOrdine{
+      margin: 25px 0;
+      display: grid;
+      grid-gap: 25px;
+      grid-template-columns: 2fr 1fr;
+
+      p:nth-child(2)::after, p:nth-child(6)::after{
+        content: ' €';
+      }
+    }
+
+    div:last-of-type{
+      text-align: center;
+
+      button{
+        width: 100%;
+        padding: 15px;
+        border: 1px solid rgb(180, 180, 180);
+        border-radius: 20px;
+        margin: 10px 0;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+
+        span:nth-of-type(1){
+          margin: 0 2px ;
+          font-family: social, sans-serif;
+        }
+        span:nth-of-type(2){
+          font-style: italic;
+          font-weight: bold;
+          color: blue;
+        }
+        span:nth-of-type(3){
+          font-style: italic;
+          font-weight: bold;
+          color: aqua;
+        }
+
+        &:first-child{
+          border: none;
+          color: white;
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  section#formPagamento{
+    width: 70%; 
+    display: none;
+  
+    section#formIndirizzo{
+      //max-height: 30px;
+      border-bottom: 1px solid gray;
+      overflow: hidden;
+      transition: 1s;
+
+      div#tipoConsegna{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        justify-content: center;
+
+        button#ritiro, button#spedizione{
+          width: 80%;
+          border: 1px solid rgb(187, 187, 187);
+          border-radius: 5px;
+          margin: 10px auto;
+          line-height: 2em;
+          font-size: 1em;
+          background-color: transparent;
+          
+          &:hover{
+            border-color: black;
+          }
+        } 
+      }
+
+      form{
+
+        div#nominativiUtente{
+          padding: 0 1em ;
+          display: grid;
+          grid-gap: 10px;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: 
+          'nome cognome'
+          'ind ind';
+          input{
+            padding: 0 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            line-height: 2.5em;
+            
+            &:nth-child(1){
+              grid-area: nome;
+            }
+            &:nth-child(2){
+              grid-area: cognome;
+            }
+            &:nth-child(3){
+              grid-area: ind;
+            }
+            
+          }
+
+        }
+
+        button{
+          margin: 15px 1em;
+          line-height: 2em;
+          border: none;
+          text-align: left;
+          color: gray;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        ul.indirizzi{
+
+          li{
+            padding: 0 1em ;
+            margin-top: 15px;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+            'cap cap citta citta paese paese'
+            'email email email tel tel tel';
+            input{
+              padding: 0 10px;
+              border: 1px solid gray;
+              border-radius: 5px;
+              line-height: 2.5em;
+              
+              &:nth-child(1){
+                grid-area: cap;
+              }
+              &:nth-child(2){
+                grid-area: citta;
+              }
+              &:nth-child(3){
+                grid-area: paese;
+              }
+              &:nth-child(4){
+                grid-area: email;
+              }
+              &:nth-child(5){
+                grid-area: tel;
+              }
+            }
+          }
+        }
+
+        button.salvaBloccato{
+          padding: 5px 10px;
+          border-radius: 10px;
+          background-color: rgb(232, 244, 248);
+          cursor:default;
+          float: right;
+        }
+
+        button.salvaSbloccato{
+          padding: 5px 10px;
+          border: 1px solid black;
+          border-radius: 10px;
+          color: black;
+          background-color: rgb(232, 244, 248);
+          float: right;
+        }
+      }
+    }
+
+    section#metodoPagamento{
+      max-height: 30px;
+      border-bottom: 1px solid gray;
+      margin-top: 5px;
+      overflow: hidden;
+      transition: 1s;
+
+      div{
+        p{
+          margin: 15px 0;
+
+          a{
+            text-decoration: none;
+            color: gray;
+          }
+        }
+
+        ul{
+          li{
+            margin: 5px 0;
+            &:nth-of-type(2){
+              label{
+                span:nth-child(1){
+                  font-family: social, sans-serif;
+                }
+                span:nth-child(2){
+                  font-weight: bold;
+                  color: aqua;
+                }
+                span:nth-child(3){
+                  font-weight: bold;
+                  color: blue;
+                }
+              }
+            }
+            &:nth-of-type(3){
+              label{
+                padding: 2px;
+              border: 1px solid gray;
+              border-radius: 25px;
+              }
+            }
+          }
+        }
+      }
+
+      div#aggiungiCarta{
+        padding: 30px;
+        border: 1px solid gray;
+        border-radius: 20px;
+        margin: 25px 0;
+
+
+        h4{
+          margin-bottom: 10px;
+          line-height: 2.5em;
+          font-weight: lighter;
+        }
+
+        div{
+          display: grid;
+          grid-gap: 5px;
+          grid-template-columns: 2fr 1fr 1fr;
+          
+          input{
+            padding: 0 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            line-height: 2.5em;
+          }
+        }
+      }
+
+      div#paga{
+        text-align: right;
+
+        button{
+          padding: 10px;
+          border: none;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          background-color: rgb(232, 244, 248);
+          cursor:default;
+          float: right;
+
+          &.salvaBloccato{
+            color: gray;
+            cursor:default;
+          }
+  
+          &.salvaSbloccato{
+            border: 1px solid black;
+            color: black;
+          }
+        }
+      }
+    }
+
+    section#verificaFinale{
+      max-height: 30px;
+      border-bottom: 1px solid gray;
+      margin-top: 5px;
+      overflow: hidden;
+      transition: 1s;
+      
+      div#datiSpedizione{
+        padding: 25px; 
+
+        h3{
+          line-height: 1.2em;
+          font-weight: lighter;
+        }
+
+        h4{
+          line-height: 1em;
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+
+  section#epilogo{
+    width: 25%;
+    margin: 10px;
+    display: none;
+
+    div{
+      display: flex;
+      align-items: baseline;
+
+      h2{
+        width: 75%;
+      }
+
+      button{
+        padding: 5px;
+        border: none;
+        border-bottom: 2px solid black;
+        font-weight: bold;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    ul#listaEpilogo{
+      padding: 10px 0;
+      margin: 10px 0;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 3fr 1fr;
+
+      li:nth-child(even):after{
+        content: '  €';
+      }
+    }
+
+    section{
+
+      h4{
+        font-size: 1.2em;
+        font-weight: lighter;
+      }
+
+      ul{
+
+        li.listaCarrelloEpilogo{
+          padding: 5px;
+          border: 1px solid gray;
+          border-radius: 15px;
+          margin: 10px;
+
+          ul{
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas: 
+            'img nome'
+            'img misura'
+            'img colore'
+            'img quantita'
+            'img prezzo';
+
+            li{
+              color: gray;
+
+              &:nth-of-type(1){
+                grid-area: img;
+              }
+              &:nth-of-type(2){
+                grid-area: nome;
+                color: black;
+              }
+              &:nth-of-type(3){
+                grid-area: misura;
+              }
+              &:nth-of-type(4){
+                grid-area: colore;
+              }
+              &:nth-of-type(5){
+                grid-area: quantita;
+              }
+              &:nth-of-type(6){
+                grid-area: prezzo;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
